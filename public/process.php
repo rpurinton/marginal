@@ -17,24 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
 
     // Determine the image type and create an image resource accordingly
     $imageType = exif_imagetype($filePath);
-    
-    // Debug: Output the image type for troubleshooting
-    error_log("Image Type: " . $imageType);
-
     switch ($imageType) {
         case IMAGETYPE_PNG:
             $originalImage = imagecreatefrompng($filePath);
-            if (!$originalImage) {
-                error_log("Failed to create image from PNG.");
-                die('Failed to create image from PNG.');
-            }
             break;
         case IMAGETYPE_WEBP:
             $originalImage = imagecreatefromwebp($filePath);
-            if (!$originalImage) {
-                error_log("Failed to create image from WEBP.");
-                die('Failed to create image from WEBP.');
-            }
             break;
         default:
             die('Unsupported image type.');
@@ -69,5 +57,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
     imagedestroy($newImage);
 } else {
     echo 'Invalid request.';
-} 
+}
 ?>

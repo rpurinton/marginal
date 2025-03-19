@@ -34,22 +34,12 @@ function uploadImage() {
     }
     const formData = new FormData();
     formData.append('image', fileInput.files[0]);
-    
-    // Build the URL with the padding parameters
     const url = `process.php?top=${top}&left=${left}&right=${right}&bottom=${bottom}`;
-
-    // Use fetch to upload the image and get the processed image back
     fetch(url, {
         method: 'POST',
         body: formData,
     })
-    .then(response => {
-        // Check if the response is OK (status code 200)
-        if (!response.ok) {
-            throw new Error('Network response was not ok.');
-        }
-        return response.blob();
-    })
+    .then(response => response.blob())
     .then(blob => {
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -62,6 +52,4 @@ function uploadImage() {
         alert('Image uploaded and processed successfully.');
     })
     .catch(error => alert('Error uploading image: ' + error));
-} 
-
-
+}
