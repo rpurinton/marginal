@@ -1,0 +1,103 @@
+body {
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0;
+    padding: 0;
+}
+
+td {
+    border: 1px solid white;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+}
+
+input {
+    width: 80%;
+    height: 80%;
+    background-color: black;
+    color: white;
+    border: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    -moz-appearance: textfield;
+}
+
+input::-webkit-inner-spin-button, 
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#image-cell {
+    position: relative;
+    text-align: center;
+    padding: 0;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 128, 64, 0.5);
+    display: none;
+    border-radius: 50%;
+    clip-path: circle(50% at center);
+}
+
+#image {
+    display: none;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.toggle {
+    position: relative;
+    width: 50px;
+    height: 24px;
+    background-color: #ddd;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle:before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked + .toggle {
+    background-color: #4caf50;
+}
+
+input[type="checkbox"]:checked + .toggle:before {
+    transform: translateX(26px);
+}

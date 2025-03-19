@@ -1,1 +1,32 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marginal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <input type="file" id="file-input" accept="image/png, image/webp" onchange="loadImage(event)">  
+    <div class="toggle-container">
+        <input type="checkbox" id="toggle-overlay" onclick="toggleOverlay()">
+        <label for="toggle-overlay" class="toggle"></label>
+        <span style="margin-left: 10px;">Toggle Overlay</span>
+    </div>
+    <table>
+        <tr>
+            <td colspan="3"><input id="top" type="number" value="0" min="-9999" max="9999" onchange="adjustPadding()"></td>
+        </tr>
+        <tr>
+            <td><input id="left" type="number" value="0" min="-9999" max="9999" onchange="adjustPadding()"></td>
+            <td id="image-cell"><div id="overlay"></div><img id="image"></td>
+            <td><input id="right" type="number" value="0" min="-9999" max="9999" onchange="adjustPadding()"></td>
+        </tr>
+        <tr>
+            <td colspan="3"><input id="bottom" type="number" value="0" min="-9999" max="9999" onchange="adjustPadding()"></td>
+        </tr>
+    </table>
+    <button onclick="uploadImage()">Upload Image</button>
+    <script src="script.js"></script>
+</body>
+</html>
