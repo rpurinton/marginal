@@ -46,11 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
     // Copy the original image onto the new image at the correct position
     imagecopy($newImage, $originalImage, $left, $top, 0, 0, $originalWidth, $originalHeight);
 
-    // Set the header to indicate a .webp image
-    header('Content-Type: image/webp');
+    // Set the header to indicate a .png image
+    header('Content-Type: image/png');
 
-    // Output the new image as a webp file
-    imagewebp($newImage);
+    // Output the new image as a png file
+    imagepng($newImage);
 
     // Free up memory
     imagedestroy($originalImage);
@@ -58,4 +58,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
 } else {
     echo 'Invalid request.';
 }
-?>
